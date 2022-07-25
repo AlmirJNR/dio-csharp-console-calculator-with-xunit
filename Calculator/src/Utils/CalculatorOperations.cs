@@ -2,21 +2,21 @@ namespace Calculator.Utils;
 
 public static class CalculatorOperations
 {
-    public static double Sum(double num1, double num2) => num1 + num2;
+    public static double Sum(double addend1, double addend2) => addend1 + addend2;
 
-    public static double Subtraction(double num1, double num2) => num1 - num2;
+    public static double Subtraction(double minuend, double subtrahend) => minuend - subtrahend;
 
-    public static double Multiplication(double num1, double num2) => num1 * num2;
+    public static double Multiplication(double multiplicand, double multiplicator) => multiplicand * multiplicator;
 
-    public static bool Division(double num1, double num2, out double? calcResult)
+    public static bool Division(double divisor, double dividend, out double? quotient)
     {
-        if (num2 != 0)
+        if (dividend != 0)
         {
-            calcResult = num1 / num2;
+            quotient = divisor / dividend;
             return true;
         }
 
-        calcResult = null;
+        quotient = null;
         return false;
     }
 }
