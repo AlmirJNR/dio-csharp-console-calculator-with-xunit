@@ -1,4 +1,6 @@
-﻿if (args.Count() < 3)
+﻿using Calculator.Utils;
+
+if (args.Count() < 3)
 {
     Console.WriteLine("Type a valid expression");
     Environment.Exit(400);
@@ -51,34 +53,4 @@ switch (operation)
         break;
     default:
         break;
-}
-
-public static class CalculatorOperations
-{
-    public static double Sum(double num1, double num2)
-    {
-        return num1 + num2;
-    }
-
-    public static double Subtraction(double num1, double num2)
-    {
-        return num1 - num2;
-    }
-
-    public static double Multiplication(double num1, double num2)
-    {
-        return num1 * num2;
-    }
-
-    public static bool Division(double num1, double num2, out double? calcResult)
-    {   
-        if (num2 != 0)
-        {
-            calcResult = num1 / num2;
-            return true;
-        }
-
-        calcResult = null;
-        return false;
-    }
 }

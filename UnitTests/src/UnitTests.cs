@@ -1,4 +1,5 @@
 using Xunit;
+using Calculator.Utils;
 
 public class UnitTests
 {
