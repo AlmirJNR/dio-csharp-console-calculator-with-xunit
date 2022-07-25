@@ -3,76 +3,86 @@ using Calculator.Utils;
 
 public class UnitTests
 {
-    [Fact]
-    public void Double_Sum_ReturnDouble()
+    // Arrange
+    [Theory]
+    [InlineData(5, 5, 10)]
+    [InlineData(10, 2, 12)]
+    [InlineData(500, 501, 1001)]
+    [InlineData(352, 559, 911)]
+    [InlineData(1, -10, -9)]
+    public void Sum_Should_Return_Double(double addend1, double addend2, double expectedResult)
     {   
-        // Arrange
-        var number1 = 5;
-        var number2 = 5;
-
         // Act
-        var result = CalculatorOperations.Sum(number1, number2);
+        var result = CalculatorOperations.Sum(addend1, addend2);
 
         // Assert
-        Assert.Equal(result, 10);
+        Assert.Equal(result, expectedResult);
     }
 
-    [Fact]
-    public void Double_Subtraction_ReturnDouble()
+    // Arrange
+    [Theory]
+    [InlineData(5, 5, 0)]
+    [InlineData(10, 2, 8)]
+    [InlineData(500, 501, -1)]
+    [InlineData(352, 559, -207)]
+    [InlineData(1, -10, 11)]
+    public void Subtraction_Should_Return_Double(double minuend, double subtrahend, double expectedResult)
     {   
-        // Arrange
-        var number1 = 5;
-        var number2 = 5;
-
         // Act
-        var result = CalculatorOperations.Subtraction(number1, number2);
+        var result = CalculatorOperations.Subtraction(minuend, subtrahend);
 
         // Assert
-        Assert.Equal(result, 0);
+        Assert.Equal(result, expectedResult);
     }
 
-    [Fact]
-    public void Double_Multiplication_ReturnDouble()
+    // Arrange
+    [Theory]
+    [InlineData(5, 5, 25)]
+    [InlineData(10, 2, 20)]
+    [InlineData(500, 2, 1000)]
+    [InlineData(850, 8, 6800)]
+    [InlineData(923, 8, 7384)]
+    public void Multiplication_Should_Return_Double(double multiplicand, double multiplicator, double expectedResult)
     {   
-        // Arrange
-        var number1 = 5;
-        var number2 = 5;
-
         // Act
-        var result = CalculatorOperations.Multiplication(number1, number2);
+        var result = CalculatorOperations.Multiplication(multiplicand, multiplicator);
 
         // Assert
-        Assert.Equal(result, 25);
+        Assert.Equal(result, expectedResult);
     }
 
-    [Fact]
-    public void Double_Division_ReturnDouble()
+    // Arrange
+    [Theory]
+    [InlineData(5, 5, 1)]
+    [InlineData(10, 2, 5)]
+    [InlineData(500, 2, 250)]
+    [InlineData(850, 8, 106.25)]
+    [InlineData(923, 8, 115.375)]
+    public void Division_Should_Return_Double(double divisor, double dividend, double expectedResult)
     {   
-        // Arrange
-        var number1 = 5;
-        var number2 = 5;
-
         // Act
-        var result = CalculatorOperations.Division(number1, number2, out double? calcResult);
+        var result = CalculatorOperations.Division(divisor, dividend, out double? quotient);
 
         // Assert
         Assert.Equal(result, true);
-        Assert.Equal(calcResult, 1);
+        Assert.Equal(quotient, expectedResult);
     }
 
-    [Fact]
-    public void Double_DivisionByZero_ReturnDouble()
+    // Arrange
+    [Theory]
+    [InlineData(5, 0, null)]
+    [InlineData(105, 0, null)]
+    [InlineData(5002, 0, null)]
+    [InlineData(302, 0, null)]
+    [InlineData(1234, 0, null)]
+    public void DivisionByZero_Should_Return_Null(double divisor, double dividend, double expectedResult)
     {   
-        // Arrange
-        var number1 = 5;
-        var number2 = 0;
-
         // Act
-        var result = CalculatorOperations.Division(number1, number2, out double? calcResult);
+        var result = CalculatorOperations.Division(divisor, dividend, out double? quotient);
 
         // Assert
         Assert.Equal(result, false);
-        Assert.Equal(calcResult, null);
+        Assert.Equal(quotient, null);
     }
 }
 
