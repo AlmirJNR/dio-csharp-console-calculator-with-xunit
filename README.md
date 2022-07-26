@@ -18,6 +18,23 @@ where:
 - [$2:]() Aritmetic Symbol (+, -, *, /)
 - [$3:]() Third number
 
+## Logging
+Every calculation made is stored within a log file, located at:
+
+```Calculator/Logs/Log.log```
+
+---
+
+## XUnit Test
+
 To run the test made with XUnit:
 
-```dotnet test```
+Terminal output:
+- ```dotnet test --nologo --logger "console verbosity=detailed"```
+
+    output: ```integrated terminal```
+
+Html Page output:
+- ```dotnet test --logger "html;logfilename=Results.html;"```
+
+    output: ```UnitTests/TestResults/```
